@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Add your config options here
+    output: "standalone",
 };
 
 module.exports = nextConfig;
