@@ -30,7 +30,7 @@ export default function Hero() {
                         transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
                         className="text-4xl md:text-5xl font-extrabold text-gray-800 leading-tight"
                     >
-                        Transforming Businesses with <span className="text-orange-500">Innovation</span> and <span className="text-blue-600">Excellence</span>
+                        Transforming Businesseses with <span className="text-orange-500">Innovation</span> and <span className="text-blue-600">Excellence</span>
                     </motion.h1>
 
                     {/* Subheading */}
