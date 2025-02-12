@@ -4,4 +4,3 @@ const nextConfig = {
 };
 
 module.exports = nextConfig;
-fatal: refusing to merge unrelated histories
