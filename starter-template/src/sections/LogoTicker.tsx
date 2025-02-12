@@ -20,7 +20,7 @@ const logos = [
 ];
 
 export default function LogoTicker() {
-    const carouselRef = useRef(null);
+    const carouselRef = useRef<HTMLDivElement| null>(null);
     const [isHovered, setIsHovered] = useState(false);
 
     // Clone logos for seamless scrolling
@@ -32,7 +32,7 @@ export default function LogoTicker() {
 
         if (!carousel) return;
 
-        let animationFrameId;
+        let animationFrameId: number;
 
         const scrollCarousel = () => {
             if (!isHovered) {
@@ -52,7 +52,7 @@ export default function LogoTicker() {
         return () => cancelAnimationFrame(animationFrameId);
     }, [isHovered]);
 
-    const handleArrowClick = (direction) => {
+    const handleArrowClick = (direction:"left"|"right") => {
         if (carouselRef.current) {
             const scrollAmount = direction === "left" ? -300 : 300;
             carouselRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });

@@ -71,9 +71,14 @@ export default function Services() {
                             {serviceCategory.items.map((item, idx) => (
                                 <motion.div
                                     key={idx}
-                                    variants={itemVariants}
+                                    variants={{
+                                        hidden: itemVariants.hidden,
+                                        visible: itemVariants.visible,
+                                        hover: cardHoverVariants.hover,
+                                    }}
+                                    initial="hidden"
+                                    animate="visible"
                                     whileHover="hover"
-                                    variants={cardHoverVariants}
                                     className="group relative bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-200 hover:border-blue-500"
                                 >
                                     <div className="text-5xl mb-6 text-blue-500">{item.icon}</div>
@@ -86,6 +91,8 @@ export default function Services() {
                                         Learn More →
                                     </a>
                                 </motion.div>
+
+
                             ))}
                         </div>
                     </div>
