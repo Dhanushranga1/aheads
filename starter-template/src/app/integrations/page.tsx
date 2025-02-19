@@ -73,8 +73,7 @@ const integrations = [
 ];
 
 export default function Integrations() {
-    const sectionsRef = useRef({});
-
+    const sectionsRef = useRef<{ [key: string]: HTMLDivElement | null }>({});
     // Smooth scrolling function
     const scrollToSection = (id:string) => {
         const section = sectionsRef.current[id];
