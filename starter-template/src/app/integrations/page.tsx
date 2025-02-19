@@ -117,7 +117,9 @@ export default function Integrations() {
                     {integrations.map((category) => (
                         <motion.div
                             key={category.id}
-                            ref={(el) => (sectionsRef.current[category.id] = el)}
+                            ref={(el) => {
+                                if (el) sectionsRef.current[category.id] = el;
+                            }} // ✅ Fully Fixed
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5 }}
