@@ -76,7 +76,7 @@ export default function Integrations() {
     const sectionsRef = useRef({});
 
     // Smooth scrolling function
-    const scrollToSection = (id) => {
+    const scrollToSection = (id:string) => {
         const section = sectionsRef.current[id];
         if (section) {
             section.scrollIntoView({ behavior: "smooth", block: "start" });
