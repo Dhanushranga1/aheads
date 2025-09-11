@@ -2,25 +2,66 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 export default function Services() {
     const services = [
         {
             category: "Core Services",
             items: [
-                { title: "IT Infrastructure & Support Services", icon: "🖥️", description: "Comprehensive IT infrastructure management and support." },
-                { title: "System Integration & Project Management", icon: "🔧", description: "Seamless system integration and expert project management." },
-                { title: "Consulting & Advisory", icon: "📈", description: "Strategic consulting to drive your business forward." },
-                { title: "Professional Services", icon: "👨‍💼", description: "Tailored professional services to meet your needs." },
+                { 
+                    title: "IT Infrastructure & Support Services", 
+                    icon: "🖥️", 
+                    description: "Comprehensive IT infrastructure management and support.",
+                    link: "/services/it-infrastructure"
+                },
+                { 
+                    title: "System Integration & Project Management", 
+                    icon: "🔧", 
+                    description: "Seamless system integration and expert project management.",
+                    link: "/services/system-integration"
+                },
+                { 
+                    title: "Consulting & Advisory", 
+                    icon: "📈", 
+                    description: "Strategic consulting to drive your business forward.",
+                    link: "/services/consulting-advisory"
+                },
+                { 
+                    title: "Professional Services", 
+                    icon: "👨‍💼", 
+                    description: "Tailored professional services to meet your needs.",
+                    link: "/services/professional-services"
+                },
             ],
         },
         {
             category: "Specialized Solutions",
             items: [
-                { title: "Internet of Things (IoT)", icon: "🌐", description: "Innovative IoT solutions for smart connectivity." },
-                { title: "Surveillance Solutions", icon: "📹", description: "Advanced surveillance for enhanced security." },
-                { title: "Cloud Computing", icon: "☁️", description: "Scalable cloud solutions for your business." },
-                { title: "Unified Communications", icon: "📞", description: "Integrated communication solutions for better collaboration." },
+                { 
+                    title: "Internet of Things (IoT)", 
+                    icon: "🌐", 
+                    description: "Innovative IoT solutions for smart connectivity.",
+                    link: "/services/iot"
+                },
+                { 
+                    title: "Surveillance Solutions", 
+                    icon: "📹", 
+                    description: "Advanced surveillance for enhanced security.",
+                    link: "/services/surveillance"
+                },
+                { 
+                    title: "Cloud Computing", 
+                    icon: "☁️", 
+                    description: "Scalable cloud solutions for your business.",
+                    link: "/services/cloud-computing"
+                },
+                { 
+                    title: "Unified Communications", 
+                    icon: "📞", 
+                    description: "Integrated communication solutions for better collaboration.",
+                    link: "/services/unified-communications"
+                },
             ],
         },
     ];
@@ -132,12 +173,12 @@ export default function Services() {
                                                     className="mt-4"
                                                 >
                                                     <p className="text-gray-700 mb-6">{item.description}</p>
-                                                    <a
-                                                        href="#"
+                                                    <Link
+                                                        href={item.link}
                                                         className="text-blue-500 font-semibold hover:text-blue-700 transition-colors duration-300"
                                                     >
                                                         Learn More →
-                                                    </a>
+                                                    </Link>
                                                 </motion.div>
                                             )}
                                         </AnimatePresence>
@@ -163,12 +204,12 @@ export default function Services() {
                                         <div className="text-5xl mb-4 text-blue-500">{item.icon}</div>
                                         <h3 className="text-2xl font-semibold mb-4 text-blue-900">{item.title}</h3>
                                         <p className="text-gray-700 mb-6">{item.description}</p>
-                                        <a
-                                            href="#"
+                                        <Link
+                                            href={item.link}
                                             className="text-blue-500 font-semibold hover:text-blue-700 transition-colors duration-300"
                                         >
                                             Learn More →
-                                        </a>
+                                        </Link>
                                     </motion.div>
                                 ))}
                             </div>
