@@ -74,7 +74,58 @@ const config: Config = {
     				'3': 'hsl(var(--chart-3))',
     				'4': 'hsl(var(--chart-4))',
     				'5': 'hsl(var(--chart-5))'
-    			}
+    			},
+    			'brand-blue': '#0f172a',
+    			'brand-orange': '#f97316',
+    			'brand-orangeDark': '#ea580c'
+    		},
+    		animation: {
+    			'fade-in-up': 'fade-in-up 0.8s ease-out forwards',
+    			'fade-in-down': 'fade-in-down 0.8s ease-out forwards',
+    			'scale-in': 'scale-in 0.6s ease-out forwards',
+    			'slide-in-right': 'slide-in-right 0.8s ease-out forwards',
+    		},
+    		keyframes: {
+    			'fade-in-up': {
+    				'0%': {
+    					opacity: '0',
+    					transform: 'translate3d(0, 30px, 0)',
+    				},
+    				'100%': {
+    					opacity: '1',
+    					transform: 'translate3d(0, 0, 0)',
+    				},
+    			},
+    			'fade-in-down': {
+    				'0%': {
+    					opacity: '0',
+    					transform: 'translate3d(0, -30px, 0)',
+    				},
+    				'100%': {
+    					opacity: '1',
+    					transform: 'translate3d(0, 0, 0)',
+    				},
+    			},
+    			'scale-in': {
+    				'0%': {
+    					opacity: '0',
+    					transform: 'scale(0.9)',
+    				},
+    				'100%': {
+    					opacity: '1',
+    					transform: 'scale(1)',
+    				},
+    			},
+    			'slide-in-right': {
+    				'0%': {
+    					opacity: '0',
+    					transform: 'translate3d(50px, 0, 0)',
+    				},
+    				'100%': {
+    					opacity: '1',
+    					transform: 'translate3d(0, 0, 0)',
+    				},
+    			},
     		}
     	}
     },

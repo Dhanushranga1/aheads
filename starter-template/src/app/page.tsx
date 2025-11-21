@@ -1,18 +1,32 @@
-import Navbar from "../sections/Navbar";
+import { Metadata } from "next";
 import Hero from "../sections/Hero";
-import LogoTicker from "@/sections/LogoTicker";
-import Introduction from "@/sections/Introduction";
+import Stats from "@/sections/Stats";
+import LogoTicker from "@/sections/LogoTickerNew";
+import WhyUs from "@/sections/WhyUsNew";
+import Services from "@/sections/Services";
+import Testimonials from "@/sections/Testimonials";
+import FAQ from "@/sections/FAQ";
+import CallToAction from "@/sections/CallToActionNew";
+import Footer from "@/sections/FooterNew";
+
+export const metadata: Metadata = {
+    alternates: {
+        canonical: "https://www.aheads.in"
+    }
+};
 
 export default function Home() {
     return (
         <>
-            
-            {/* <Navbar/> */}
-
             <Hero/>
+            <Stats/>
             <LogoTicker/>
-            {/* <Introduction/> */}
-
+            <WhyUs/>
+            <Services/>
+            <Testimonials/>
+            <FAQ/>
+            <CallToAction/>
+            <Footer/>
         </>
     );
 }

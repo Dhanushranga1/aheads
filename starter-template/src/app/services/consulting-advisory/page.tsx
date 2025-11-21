@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function ConsultingAdvisory() {
     return (
-        <div className="p-8 bg-gradient-to-r from-blue-50 to-purple-50 min-h-screen">
+        <div className="p-8 bg-gradient-to-r from-blue-50 to-purple-50 min-h-screen pt-20 lg:pt-24">
             {/* Breadcrumb Navigation */}
             <motion.nav
                 initial={{ opacity: 0, y: -20 }}

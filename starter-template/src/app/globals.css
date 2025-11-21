@@ -2,13 +2,38 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    background-image: url('/home/dhanush/Dev/landing-page/frontend-tribe-design-saas-landing-page-resource-bundle/starter-template/src/assets/images/backgrounda.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background-color: #0f172a;
     min-height: 100vh;
     margin: 0;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e1 #f1f5f9;
 }
 
 @keyframes marquee {
@@ -20,9 +45,168 @@ body {
     animation: marquee 20s linear infinite;
 }
 
+/* Performance-optimized animations with hardware acceleration */
+@keyframes fade-in-up {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 30px, 0);
+    }
+    100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes fade-in-down {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, -30px, 0);
+    }
+    100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes scale-in {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slide-in-right {
+    0% {
+        opacity: 0;
+        transform: translate3d(50px, 0, 0);
+    }
+    100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.animate-fade-in-up {
+    animation: fade-in-up 0.8s ease-out forwards;
+    will-change: transform, opacity;
+}
+
+.animate-fade-in-down {
+    animation: fade-in-down 0.8s ease-out forwards;
+    will-change: transform, opacity;
+}
+
+.animate-scale-in {
+    animation: scale-in 0.6s ease-out forwards;
+    will-change: transform, opacity;
+}
+
+.animate-slide-in-right {
+    animation: slide-in-right 0.8s ease-out forwards;
+    will-change: transform, opacity;
+}
+
+/* Staggered animation delays */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+.delay-600 { animation-delay: 0.6s; }
+
+/* Smooth scroll for better performance */
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+/* Grid pattern background */
+.bg-grid-pattern {
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 4rem 4rem;
+}
+
 .group:hover .group-hover\:scale-110 {
     transform: scale(1.1);
 }
+
+/* Hide scrollbar utility */
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Performance-friendly animation utilities */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes subtlePulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.02); opacity: 0.95; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 640ms cubic-bezier(.22,.9,.34,1) both;
+    will-change: transform, opacity;
+}
+.animate-subtle-pulse {
+    animation: subtlePulse 8s ease-in-out infinite;
+    will-change: transform, opacity;
+}
+
+@keyframes floatY {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+.animate-float-y {
+    animation: floatY 3.5s ease-in-out infinite;
+    will-change: transform;
+}
+
+/* utility delays (use on elements in sequence) */
+.delay-0 { animation-delay: 0ms; }
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+
+/* stagger container: child items with .animate-fade-in-up will inherit increasing delays via CSS counter */
+.stagger {
+    --stagger-step: 90ms;
+}
+.stagger > * { opacity: 0; transform: translateY(12px); animation: fadeInUp 640ms cubic-bezier(.22,.9,.34,1) both; }
+.stagger > *:nth-child(1) { animation-delay: calc(var(--stagger-step) * 0); }
+.stagger > *:nth-child(2) { animation-delay: calc(var(--stagger-step) * 1); }
+.stagger > *:nth-child(3) { animation-delay: calc(var(--stagger-step) * 2); }
+.stagger > *:nth-child(4) { animation-delay: calc(var(--stagger-step) * 3); }
+.stagger > *:nth-child(5) { animation-delay: calc(var(--stagger-step) * 4); }
+
+/* Respect user preference for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .animate-fade-in-up,
+    .animate-subtle-pulse,
+    .stagger > * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* hint to browsers about heavy layers */
+.will-change-transform { will-change: transform, opacity; }
 
 @layer base {
   :root {
