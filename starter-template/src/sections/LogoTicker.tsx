@@ -68,42 +68,6 @@ export default function LogoTicker() {
                         </div>
                     </div>
                 </div>
-                                    <CardContent className="flex flex-col items-center justify-center h-full p-4 md:p-6">
-                                        <div className="relative w-16 h-16 md:w-24 md:h-24 mb-3">
-                                            <Image
-                                                src={logo.image}
-                                                alt={logo.name}
-                                                fill
-                                                className="object-contain"
-                                            />
-                                        </div>
-                                        <h4 className="text-sm md:text-lg font-semibold text-gray-900 text-center">
-                                            {logo.name}
-                                        </h4>
-                                    </CardContent>
-                                </Card>
-                            </motion.div>
-                        ))}
-                    </motion.div>
-
-                    {/* Left Arrow (Hidden on Mobile) */}
-                    <motion.button
-                        onClick={() => handleArrowClick("left")}
-                        className="hidden md:block absolute left-4 top-1/2 -translate-y-1/2 bg-white text-gray-900 p-3 rounded-full shadow-lg hover:bg-gray-100 transition duration-300 z-20 border border-gray-200"
-                        whileTap={{ scale: 0.9 }}
-                    >
-                        <ChevronLeft className="w-6 h-6" />
-                    </motion.button>
-
-                    {/* Right Arrow (Hidden on Mobile) */}
-                    <motion.button
-                        onClick={() => handleArrowClick("right")}
-                        className="hidden md:block absolute right-4 top-1/2 -translate-y-1/2 bg-white text-gray-900 p-3 rounded-full shadow-lg hover:bg-gray-100 transition duration-300 z-20 border border-gray-200"
-                        whileTap={{ scale: 0.9 }}
-                    >
-                        <ChevronRight className="w-6 h-6" />
-                    </motion.button>
-                </div>
             </div>
         </section>
     );
