@@ -298,3 +298,43 @@ body {
   html {
     scroll-behavior: smooth;
   }
+
+/* Logo Ticker Animation */
+.logo-ticker-wrapper {
+    overflow: hidden;
+    width: 100%;
+}
+
+.logo-ticker-track {
+    display: flex;
+    animation: logo-scroll 30s linear infinite;
+    will-change: transform;
+}
+
+.logo-ticker-wrapper:hover .logo-ticker-track {
+    animation-play-state: paused;
+}
+
+.logo-ticker-item {
+    flex-shrink: 0;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes logo-scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-33.333%);
+    }
+}
+
+/* Ensure smooth animation on all devices */
+@media (prefers-reduced-motion: reduce) {
+    .logo-ticker-track {
+        animation: none;
+    }
+}

@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import logoImage from "@/assets/images/logo1.svg";
 
 const footerLinks = [
     { href: "/contact", label: "Contact" },
@@ -18,7 +17,7 @@ export default function Footer() {
                     {/* Company Info */}
                     <div className="md:col-span-2">
                         <div className="flex items-center space-x-2 mb-4">
-                            <Image src={logoImage} alt="Ahead Services" width={32} height={32} />
+                            <Image src="/logo1.svg" alt="Ahead Services" width={32} height={32} />
                             <span className="text-xl font-bold">Ahead Services</span>
                         </div>
                         <p className="text-gray-300 mb-4 max-w-md">

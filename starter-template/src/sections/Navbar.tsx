@@ -4,8 +4,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import logoImage from "@/assets/images/logo1.svg";
-import logoImage1 from "@/assets/images/logo2.svg";
 import { useState, useEffect } from "react";
 import { ArrowUpRight } from "lucide-react";
 
@@ -55,14 +53,18 @@ export default function Navbar() {
                                 className="flex items-center space-x-2"
                             >
                                 <Image
-                                    src={logoImage1}
+                                    src="/logo2.svg"
                                     alt="Ahead Services"
+                                    width={40}
+                                    height={40}
                                     className="h-10 w-auto"
                                     priority
                                 />
                                 <Image
-                                    src={logoImage}
+                                    src="/logo1.svg"
                                     alt="Ahead Services Logo"
+                                    width={120}
+                                    height={40}
                                     className="h-10 w-auto"
                                     priority
                                 />
