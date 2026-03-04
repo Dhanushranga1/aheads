@@ -1,11 +1,26 @@
 import { NextResponse } from "next/server";
-import { Resend } from "resend";
+import dns from "node:dns";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Force IPv4 — prevents fetch from hanging on broken IPv6 routes
+dns.setDefaultResultOrder("ipv4first");
 
-const TO_EMAIL = "rajasekar.gopisetty@aheads.in";
-// Once you verify aheads.in in Resend → change to: "Ahead Services <noreply@aheads.in>"
+// TODO: Once aheads.in domain is verified in Resend → change both lines below:
+//   TO_EMAIL   → "rajasekar.gopisetty@aheads.in"
+//   FROM_EMAIL → "Ahead Services <noreply@aheads.in>"
+const TO_EMAIL = "dhanu20042@gmail.com"; // temporary: Resend free tier requires verified domain to send to aheads.in
 const FROM_EMAIL = "Ahead Services <onboarding@resend.dev>";
+
+async function sendEmail(payload: object) {
+    const res = await fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: {
+            Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+    });
+    return res;
+}
 
 export async function POST(request: Request) {
     try {
@@ -29,17 +44,17 @@ export async function POST(request: Request) {
         }
 
         const serviceLabel: Record<string, string> = {
-            sales: "Sales / Consultation",
+            sales: "Sales / New Project",
             technical: "Technical Support",
             partnerships: "Partnerships",
             "iso-consulting": "ISO Certification Consulting",
             other: "Other",
         };
 
-        const { error } = await resend.emails.send({
+        const emailRes = await sendEmail({
             from: FROM_EMAIL,
-            to: TO_EMAIL,
-            replyTo: email,
+            to: [TO_EMAIL],
+            reply_to: email,
             subject: `New enquiry from ${name}${company ? ` – ${company}` : ""}`,
             html: `
                 <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #1e293b;">
@@ -117,8 +132,9 @@ export async function POST(request: Request) {
             `,
         });
 
-        if (error) {
-            console.error("Resend error:", error);
+        if (!emailRes.ok) {
+            const errBody = await emailRes.json().catch(() => ({}));
+            console.error("Resend error:", emailRes.status, errBody);
             return NextResponse.json(
                 { error: "Failed to send email. Please try again or contact us directly." },
                 { status: 500 }
@@ -126,10 +142,7 @@ export async function POST(request: Request) {
         }
 
         return NextResponse.json(
-            {
-                success: true,
-                message: "Message sent. We'll be in touch within 24 hours.",
-            },
+            { success: true, message: "Message sent. We'll be in touch within 24 hours." },
             { status: 200 }
         );
     } catch (error) {
