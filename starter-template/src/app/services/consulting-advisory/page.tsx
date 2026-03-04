@@ -2,242 +2,313 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import {
+    Award,
+    ShieldCheck,
+    Server,
+    Lock,
+    RefreshCw,
+    Leaf,
+    HardHat,
+    UtensilsCrossed,
+    ClipboardList,
+    ChevronRight,
+    CheckCircle2,
+} from "lucide-react";
+
+const isoServices = [
+    {
+        standard: "ISO 9001",
+        name: "Quality Management System",
+        acronym: "QMS",
+        icon: ClipboardList,
+        description:
+            "Establish and maintain a framework for consistent quality delivery across all business processes.",
+    },
+    {
+        standard: "ISO 27001",
+        name: "Information Security Management System",
+        acronym: "ISMS",
+        icon: ShieldCheck,
+        description:
+            "Protect sensitive information assets with a systematic approach to managing information security risks.",
+    },
+    {
+        standard: "ISO 20000",
+        name: "IT Service Management",
+        acronym: "ITSM",
+        icon: Server,
+        description:
+            "Align IT service delivery with business needs through internationally recognised service management practices.",
+    },
+    {
+        standard: "ISO 27701",
+        name: "Privacy Information Management System",
+        acronym: "PIMS",
+        icon: Lock,
+        description:
+            "Extend your ISMS to cover privacy management and demonstrate GDPR / data protection compliance.",
+    },
+    {
+        standard: "ISO 22301",
+        name: "Business Continuity Management System",
+        acronym: "BCMS",
+        icon: RefreshCw,
+        description:
+            "Build organisational resilience so critical operations continue during and after disruptive incidents.",
+    },
+    {
+        standard: "ISO 14001",
+        name: "Environmental Management System",
+        acronym: "EMS",
+        icon: Leaf,
+        description:
+            "Reduce environmental impact, meet regulatory obligations, and demonstrate sustainability commitments.",
+    },
+    {
+        standard: "ISO 45001",
+        name: "Occupational Health & Safety Management System",
+        acronym: "OHSMS",
+        icon: HardHat,
+        description:
+            "Prevent work-related injury and ill health by managing occupational health and safety risks proactively.",
+    },
+    {
+        standard: "ISO 22000",
+        name: "Food Safety Management System",
+        acronym: "FSMS",
+        icon: UtensilsCrossed,
+        description:
+            "Ensure food safety at every stage of the supply chain through hazard analysis and preventive controls.",
+    },
+];
+
+const approachSteps = [
+    {
+        step: "01",
+        title: "Discovery",
+        description: "Understanding your organisation, scope, and certification goals.",
+    },
+    {
+        step: "02",
+        title: "Gap Analysis",
+        description: "Identifying gaps between your current practices and the standard's requirements.",
+    },
+    {
+        step: "03",
+        title: "Implementation",
+        description: "Developing policies, procedures, and controls to close identified gaps.",
+    },
+    {
+        step: "04",
+        title: "Internal Audit",
+        description: "Conducting a pre-certification audit to validate readiness.",
+    },
+    {
+        step: "05",
+        title: "Certification",
+        description: "Supporting you through the formal certification body audit.",
+    },
+];
 
 export default function ConsultingAdvisory() {
     return (
-        <div className="p-8 bg-gradient-to-r from-blue-50 to-purple-50 min-h-screen pt-20 lg:pt-24">
-            {/* Breadcrumb Navigation */}
-            <motion.nav
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="mb-8"
-            >
-                <div className="flex items-center space-x-2 text-sm text-blue-600">
-                    <Link href="/" className="hover:text-blue-800 transition-colors">Home</Link>
-                    <span>/</span>
-                    <Link href="/services" className="hover:text-blue-800 transition-colors">Services</Link>
-                    <span>/</span>
-                    <span className="text-blue-900 font-semibold">Consulting & Advisory</span>
-                </div>
-            </motion.nav>
+        <div className="bg-brand-blue min-h-screen pt-20 relative overflow-hidden text-white">
+            {/* Background grid */}
+            <div className="absolute inset-0 bg-[linear-gradient(90deg,#ffffff06_1px,transparent_1px),linear-gradient(0deg,#ffffff06_1px,transparent_1px)] bg-[size:4rem_4rem]" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#0f172a_80%)]" />
 
-            {/* Hero Section */}
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                className="text-center mb-12"
-            >
-                <div className="text-6xl mb-6">📈</div>
-                <h1 className="text-4xl md:text-5xl font-bold mb-6 text-blue-900">
-                    Consulting & Advisory Services
-                </h1>
-                <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-                    Strategic consulting to drive your business forward with expert insights, 
-                    data-driven recommendations, and proven methodologies.
-                </p>
-            </motion.div>
+            {/* Glow accents */}
+            <div className="absolute inset-0 pointer-events-none overflow-hidden">
+                <div className="absolute -left-40 top-24 w-[500px] h-[500px] rounded-full blur-3xl bg-orange-500/8" />
+                <div className="absolute -right-60 bottom-32 w-[600px] h-[600px] rounded-full blur-3xl bg-blue-500/8" />
+            </div>
 
-            {/* Key Features Section */}
-            <motion.section
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.2 }}
-                className="mb-16"
-            >
-                <h2 className="text-3xl font-bold text-center mb-10 text-blue-800">Our Consulting Expertise</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {[
-                        {
-                            icon: "🎯",
-                            title: "Strategic Planning",
-                            description: "Develop comprehensive business strategies aligned with your goals and market opportunities."
-                        },
-                        {
-                            icon: "🔍",
-                            title: "Digital Transformation",
-                            description: "Guide your organization through digital transformation initiatives and technology adoption."
-                        },
-                        {
-                            icon: "📊",
-                            title: "Process Optimization",
-                            description: "Analyze and optimize business processes for improved efficiency and productivity."
-                        },
-                        {
-                            icon: "💡",
-                            title: "Innovation Strategy",
-                            description: "Foster innovation culture and implement cutting-edge solutions for competitive advantage."
-                        },
-                        {
-                            icon: "🔧",
-                            title: "Technology Advisory",
-                            description: "Expert guidance on technology selection, implementation, and best practices."
-                        },
-                        {
-                            icon: "📈",
-                            title: "Performance Analytics",
-                            description: "Data-driven insights and analytics to measure and improve business performance."
-                        }
-                    ].map((feature, index) => (
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: 0.1 * index }}
-                            whileHover={{ scale: 1.05 }}
-                            className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-200 hover:border-blue-500"
-                        >
-                            <div className="text-4xl mb-4">{feature.icon}</div>
-                            <h3 className="text-xl font-semibold mb-3 text-blue-900">{feature.title}</h3>
-                            <p className="text-gray-700">{feature.description}</p>
-                        </motion.div>
-                    ))}
-                </div>
-            </motion.section>
+            <div className="relative z-10 max-w-7xl mx-auto px-4 py-12">
 
-            {/* Consulting Process */}
-            <motion.section
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.4 }}
-                className="mb-16 bg-white p-8 rounded-xl shadow-lg"
-            >
-                <h2 className="text-3xl font-bold text-center mb-10 text-blue-800">Our Consulting Approach</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
-                    {[
-                        {
-                            step: "01",
-                            title: "Discovery",
-                            description: "Understanding your business, challenges, and objectives."
-                        },
-                        {
-                            step: "02",
-                            title: "Analysis",
-                            description: "In-depth analysis of current state and market conditions."
-                        },
-                        {
-                            step: "03",
-                            title: "Strategy",
-                            description: "Developing tailored strategies and actionable recommendations."
-                        },
-                        {
-                            step: "04",
-                            title: "Implementation",
-                            description: "Supporting execution with hands-on guidance and expertise."
-                        },
-                        {
-                            step: "05",
-                            title: "Optimization",
-                            description: "Continuous monitoring and optimization for sustained success."
-                        }
-                    ].map((process, index) => (
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: 0.1 * index }}
-                            className="text-center"
-                        >
-                            <div className="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-lg font-bold mx-auto mb-4">
-                                {process.step}
-                            </div>
-                            <h3 className="text-lg font-semibold text-blue-900 mb-2">{process.title}</h3>
-                            <p className="text-gray-700 text-sm">{process.description}</p>
-                        </motion.div>
-                    ))}
-                </div>
-            </motion.section>
+                {/* Breadcrumb */}
+                <motion.nav
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4 }}
+                    className="flex items-center gap-2 text-sm text-slate-400 mb-12"
+                >
+                    <Link href="/" className="hover:text-white transition-colors">Home</Link>
+                    <ChevronRight className="w-4 h-4" />
+                    <Link href="/services" className="hover:text-white transition-colors">Services</Link>
+                    <ChevronRight className="w-4 h-4" />
+                    <span className="text-slate-200">Consulting & Advisory</span>
+                </motion.nav>
 
-            {/* Industries We Serve */}
-            <motion.section
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.6 }}
-                className="mb-16"
-            >
-                <h2 className="text-3xl font-bold text-center mb-10 text-blue-800">Industries We Serve</h2>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                    {[
-                        { icon: "🏭", name: "Manufacturing" },
-                        { icon: "🏥", name: "Healthcare" },
-                        { icon: "🏦", name: "Financial Services" },
-                        { icon: "🛒", name: "Retail & E-commerce" },
-                        { icon: "🎓", name: "Education" },
-                        { icon: "🏗️", name: "Construction" },
-                        { icon: "⚡", name: "Energy & Utilities" },
-                        { icon: "🚛", name: "Logistics & Supply Chain" }
-                    ].map((industry, index) => (
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 0.5, delay: 0.1 * index }}
-                            whileHover={{ scale: 1.05 }}
-                            className="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 text-center border border-gray-200 hover:border-blue-500"
-                        >
-                            <div className="text-3xl mb-2">{industry.icon}</div>
-                            <h3 className="text-sm font-semibold text-blue-900">{industry.name}</h3>
-                        </motion.div>
-                    ))}
-                </div>
-            </motion.section>
+                {/* Hero */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                    className="mb-20"
+                >
+                    <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold bg-brand-orange/10 border border-brand-orange/20 text-brand-orange mb-6">
+                        <Award className="w-4 h-4" />
+                        ISO CERTIFICATION EXPERTS
+                    </span>
 
-            {/* Value Proposition */}
-            <motion.section
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.8 }}
-                className="mb-16 bg-gradient-to-r from-gray-50 to-blue-50 p-8 rounded-xl"
-            >
-                <h2 className="text-3xl font-bold text-center mb-10 text-blue-800">Why Choose Our Advisory Services?</h2>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div className="text-center">
-                        <div className="text-4xl mb-4">🎯</div>
-                        <h3 className="text-xl font-semibold text-blue-900 mb-3">Proven Results</h3>
-                        <p className="text-gray-700">Track record of delivering measurable business outcomes and ROI for our clients.</p>
+                    <h1 className="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight mt-4">
+                        Consulting &
+                        <span className="block mt-1 bg-clip-text text-transparent bg-gradient-to-r from-brand-orange via-orange-400 to-yellow-400">
+                            Advisory
+                        </span>
+                    </h1>
+
+                    <p className="mt-6 max-w-3xl text-lg text-slate-300 leading-relaxed">
+                        We provide comprehensive consulting and advisory services to help organisations achieve
+                        and maintain internationally recognised ISO certifications. Our experts support
+                        businesses through the entire certification journey — including gap analysis,
+                        implementation, documentation, risk management, internal audits, and certification
+                        readiness.
+                    </p>
+                </motion.div>
+
+                {/* ISO Services Grid */}
+                <motion.section
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className="mb-24"
+                >
+                    <h2 className="text-2xl font-bold text-white mb-2">Our ISO consulting services include:</h2>
+                    <p className="text-slate-400 mb-10 text-sm">
+                        We help organisations streamline governance, strengthen security and compliance
+                        frameworks, and achieve global certification standards.
+                    </p>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        {isoServices.map((service, index) => (
+                            <motion.div
+                                key={service.standard}
+                                initial={{ opacity: 0, y: 16 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.4, delay: index * 0.05 }}
+                                className="relative bg-slate-800/40 border border-white/5 rounded-2xl p-6 hover:bg-slate-800/60 hover:-translate-y-0.5 transform transition-all duration-200 group overflow-hidden"
+                            >
+                                {/* Top accent line on hover */}
+                                <div className="absolute left-0 top-0 w-full h-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-r from-brand-orange to-yellow-400" />
+
+                                <div className="flex items-start gap-4">
+                                    <div className="w-12 h-12 rounded-lg flex items-center justify-center bg-slate-900/50 border border-white/5 group-hover:border-brand-orange/40 transition-colors duration-300 flex-shrink-0">
+                                        <service.icon className="w-5 h-5 text-slate-400 group-hover:text-brand-orange transition-colors duration-300" />
+                                    </div>
+
+                                    <div className="flex-1 min-w-0">
+                                        <div className="flex items-baseline gap-2 flex-wrap">
+                                            <span className="text-base font-bold text-brand-orange font-mono">
+                                                {service.standard}
+                                            </span>
+                                            <span className="text-xs text-slate-500 font-medium">
+                                                {service.acronym}
+                                            </span>
+                                        </div>
+                                        <h3 className="text-white font-semibold mt-0.5 leading-snug">
+                                            {service.name}
+                                        </h3>
+                                        <p className="mt-2 text-slate-400 text-sm leading-relaxed">
+                                            {service.description}
+                                        </p>
+                                    </div>
+                                </div>
+                            </motion.div>
+                        ))}
                     </div>
-                    <div className="text-center">
-                        <div className="text-4xl mb-4">👥</div>
-                        <h3 className="text-xl font-semibold text-blue-900 mb-3">Expert Team</h3>
-                        <p className="text-gray-700">Industry experts with deep knowledge and years of practical experience.</p>
-                    </div>
-                    <div className="text-center">
-                        <div className="text-4xl mb-4">🔄</div>
-                        <h3 className="text-xl font-semibold text-blue-900 mb-3">Agile Approach</h3>
-                        <p className="text-gray-700">Flexible, adaptive consulting approach that evolves with your changing needs.</p>
-                    </div>
-                </div>
-            </motion.section>
+                </motion.section>
 
-            {/* CTA Section */}
-            <motion.section
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 1.0 }}
-                className="text-center bg-gradient-to-r from-blue-600 to-purple-600 text-white p-8 rounded-xl shadow-lg"
-            >
-                <h2 className="text-3xl font-bold mb-4">Ready to Transform Your Business?</h2>
-                <p className="text-xl mb-8 opacity-90">
-                    Let's discuss how our strategic consulting can drive your business forward.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <motion.button
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="bg-white text-blue-600 font-semibold px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors duration-300"
-                    >
-                        Schedule Consultation
-                    </motion.button>
-                    <motion.button
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="border-2 border-white text-white font-semibold px-8 py-3 rounded-lg hover:bg-white hover:text-blue-600 transition-colors duration-300"
-                    >
-                        Download Case Studies
-                    </motion.button>
-                </div>
-            </motion.section>
+                {/* Approach */}
+                <motion.section
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className="mb-24"
+                >
+                    <h2 className="text-2xl font-bold text-white mb-10">Our Approach</h2>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+                        {approachSteps.map((step, index) => (
+                            <motion.div
+                                key={step.step}
+                                initial={{ opacity: 0, y: 16 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.4, delay: index * 0.08 }}
+                                className="bg-slate-800/30 border border-white/5 rounded-xl p-5"
+                            >
+                                <div className="text-brand-orange font-mono text-sm font-bold mb-3">
+                                    {step.step}
+                                </div>
+                                <h3 className="text-white font-semibold mb-2">{step.title}</h3>
+                                <p className="text-slate-400 text-sm leading-relaxed">{step.description}</p>
+                            </motion.div>
+                        ))}
+                    </div>
+                </motion.section>
+
+                {/* What's included */}
+                <motion.section
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className="mb-24"
+                >
+                    <div className="bg-slate-800/30 border border-white/5 rounded-2xl p-8 md:p-10">
+                        <h2 className="text-2xl font-bold text-white mb-8">What's included in every engagement</h2>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            {[
+                                "Gap analysis against the relevant ISO standard",
+                                "Policy and procedure documentation support",
+                                "Risk assessment and treatment planning",
+                                "Implementation guidance and milestone tracking",
+                                "Internal audit preparation and execution",
+                                "Corrective action review before certification audit",
+                                "Liaison support with the certification body",
+                                "Post-certification maintenance advisory",
+                            ].map((item) => (
+                                <div key={item} className="flex items-start gap-3">
+                                    <CheckCircle2 className="w-4 h-4 text-brand-orange mt-0.5 flex-shrink-0" />
+                                    <span className="text-slate-300 text-sm">{item}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </motion.section>
+
+                {/* CTA */}
+                <motion.section
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className="relative p-10 md:p-14 rounded-2xl bg-gradient-to-br from-slate-900 to-slate-800 border border-white/10 overflow-hidden text-center"
+                >
+                    <div className="relative z-10">
+                        <h2 className="text-3xl font-bold text-white mb-4">
+                            Ready to begin your certification journey?
+                        </h2>
+                        <p className="text-slate-300 text-lg mb-8 max-w-xl mx-auto">
+                            Speak with one of our ISO consultants to scope your engagement and get a clear
+                            roadmap to certification.
+                        </p>
+                        <Link
+                            href="/contact"
+                            className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-brand-orange to-brand-orangeDark text-white font-bold shadow-[0_20px_40px_rgba(249,115,22,0.25)] hover:shadow-[0_24px_48px_rgba(249,115,22,0.35)] transition-all duration-300"
+                        >
+                            Schedule a Consultation
+                            <ChevronRight className="w-5 h-5" />
+                        </Link>
+                    </div>
+                </motion.section>
+
+            </div>
         </div>
     );
 }

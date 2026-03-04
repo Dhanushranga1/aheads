@@ -366,13 +366,15 @@ export default function ServicesPage() {
                                 </p>
                             </div>
                             <div>
-                                <motion.button
-                                    whileHover={{ scale: 1.05 }}
-                                    whileTap={{ scale: 0.95 }}
-                                    className="px-8 py-4 rounded-full bg-gradient-to-r from-brand-orange to-brand-orangeDark text-white font-bold shadow-[0_20px_40px_rgba(249,115,22,0.25)] hover:shadow-[0_24px_48px_rgba(249,115,22,0.35)] transition-all duration-300 whitespace-nowrap"
-                                >
-                                    Book a Free Consultation
-                                </motion.button>
+                                <Link href="/contact">
+                                    <motion.span
+                                        whileHover={{ scale: 1.05 }}
+                                        whileTap={{ scale: 0.95 }}
+                                        className="inline-block px-8 py-4 rounded-full bg-gradient-to-r from-brand-orange to-brand-orangeDark text-white font-bold shadow-[0_20px_40px_rgba(249,115,22,0.25)] hover:shadow-[0_24px_48px_rgba(249,115,22,0.35)] transition-all duration-300 whitespace-nowrap cursor-pointer"
+                                    >
+                                        Book a Free Consultation
+                                    </motion.span>
+                                </Link>
                             </div>
                         </div>
                     </section>
