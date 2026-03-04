@@ -54,6 +54,7 @@ export default function LogoTicker() {
                                         alt={logo.name}
                                         width={140}
                                         height={60}
+                                        unoptimized
                                         className="h-12 w-auto object-contain brightness-0 invert opacity-40 group-hover:opacity-100 transition-all duration-500"
                                     />
                                 </div>

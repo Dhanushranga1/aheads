@@ -59,6 +59,7 @@ export default function Navbar() {
                                     alt="Ahead Services"
                                     width={40}
                                     height={40}
+                                    unoptimized
                                     className="h-10 w-auto"
                                     priority
                                 />
@@ -67,6 +68,7 @@ export default function Navbar() {
                                     alt="Ahead Services Logo"
                                     width={120}
                                     height={40}
+                                    unoptimized
                                     className="h-10 w-auto"
                                     priority
                                 />
