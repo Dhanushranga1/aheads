@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/sections/Navbar";
+import FloatingCTA from "@/components/FloatingCTA";
+import ExitIntentPopup from "@/components/ExitIntentPopup";
 import { Analytics } from "@vercel/analytics/next";
 
 const inter = Inter({
@@ -185,6 +187,8 @@ export default function RootLayout({
             >
                 <Navbar />
                 {children}
+                <FloatingCTA />
+                <ExitIntentPopup />
                 <Analytics />
             </body>
         </html>

@@ -12,6 +12,8 @@ const navLinks = [
     { label: "Services", href: "/services" },
     { label: "Integrations", href: "/integrations" },
     { label: "Why Us", href: "/why-us" },
+    { label: "About", href: "/about" },
+    { label: "Case Studies", href: "/case-studies" },
 ];
 
 export default function Navbar() {

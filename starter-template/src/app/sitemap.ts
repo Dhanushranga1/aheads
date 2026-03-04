@@ -16,6 +16,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
         'unified-communications'
     ];
 
+    // Define all case study slugs
+    const caseStudySlugs = [
+        'fintech-cloud-migration',
+        'healthcare-cybersecurity',
+        'ecommerce-iot-warehouse',
+        'manufacturing-erp-integration',
+        'saas-platform-infrastructure',
+        'retail-surveillance-system'
+    ];
+
     // Main pages with high priority
     const mainPages: MetadataRoute.Sitemap = [
         {
@@ -43,6 +53,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
             priority: 0.8,
         },
         {
+            url: `${baseUrl}/about`,
+            lastModified: currentDate,
+            changeFrequency: 'monthly',
+            priority: 0.8,
+        },
+        {
+            url: `${baseUrl}/case-studies`,
+            lastModified: currentDate,
+            changeFrequency: 'weekly',
+            priority: 0.9,
+        },
+        {
             url: `${baseUrl}/contact`,
             lastModified: currentDate,
             changeFrequency: 'monthly',
@@ -58,5 +80,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.7,
     }));
 
-    return [...mainPages, ...servicePageSitemaps];
+    // Case study detail pages
+    const caseStudyPageSitemaps: MetadataRoute.Sitemap = caseStudySlugs.map((slug) => ({
+        url: `${baseUrl}/case-studies/${slug}`,
+        lastModified: currentDate,
+        changeFrequency: 'monthly' as const,
+        priority: 0.7,
+    }));
+
+    return [...mainPages, ...servicePageSitemaps, ...caseStudyPageSitemaps];
 }

@@ -4,21 +4,14 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-// Client/Partner Logos
-import acmeCorp from "@/assets/images/acme-corp.svg";
-import apex from "@/assets/images/apex.svg";
-import celestial from "@/assets/images/celestial.svg";
-import echoValley from "@/assets/images/echo-valley.svg";
-import quantum from "@/assets/images/quantum.svg";
-import twice from "@/assets/images/twice.svg";
-
+// Client/Partner Logos - using public folder for reliable deployment
 const logos = [
-    { name: "Acme Corp", image: acmeCorp },
-    { name: "Apex", image: apex },
-    { name: "Celestial", image: celestial },
-    { name: "Echo Valley", image: echoValley },
-    { name: "Quantum", image: quantum },
-    { name: "Twice", image: twice },
+    { name: "Acme Corp", image: "/logos/acme-corp.svg" },
+    { name: "Apex", image: "/logos/apex.svg" },
+    { name: "Celestial", image: "/logos/celestial.svg" },
+    { name: "Echo Valley", image: "/logos/echo-valley.svg" },
+    { name: "Quantum", image: "/logos/quantum.svg" },
+    { name: "Twice", image: "/logos/twice.svg" },
 ];
 
 export default function LogoTicker() {
