@@ -17,11 +17,11 @@ export default function Footer() {
                     {/* Company Info */}
                     <div className="md:col-span-2">
                         <div className="flex items-center space-x-2 mb-4">
-                            <Image src="/logo1.svg" alt="Ahead Services" width={32} height={32} />
+                            <Image src="/logo1.svg" alt="Ahead Services" width={32} height={32} unoptimized />
                             <span className="text-xl font-bold">Ahead Services</span>
                         </div>
                         <p className="text-gray-300 mb-4 max-w-md">
-                            Founded in 2013 and headquartered in Bangalore, we deliver enterprise-ready 
+                            Founded in 2008 and headquartered in Bangalore, we deliver enterprise-ready
                             technology solutions with a cybersecurity-first mindset.
                         </p>
                         <p className="text-sm text-gray-400 italic">
